@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="main">main</div>
+    <ul>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul>
+    <div>
+        <span>1</span>
+        <span>1</span>
+        <span>
+            <div>222</div>
+        </span>
+    </div>
+    <input type="text" name="" id="">
+    <script src="./myJq.js"></script>
+    <script>
+        // console.log($('ul>li'))
+        // $('ul>li').css('background', 'green')
+        // jquery('#main').css('background', 'red')
+        // console.log($('ul>li').first())
+        // console.log($('ul>li').last())
+        // $('ul').html('main')
+        // $('#main').html($('div>span'))
+        // console.log($('div>span'));
+        // let span=document.querySelectorAll('div>span')
+        // // console.log(span[2].childNodes);
+        // $('ul').html($('#main'))  // [object Object] 
+        // let main = document.querySelectorAll('div>span')
+        $('ul').html($('div>span'))
+        // $('ul').html('a')
+        console.log($('ul').html())
+        // console.log( document.querySelector('#main').innerHTML)
+    </script>
+</body>
+
+</html>
