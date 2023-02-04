@@ -39,14 +39,20 @@
     // // console.log(span[2].childNodes);
     // $('ul').html($('#main'))  // [object Object]
     // let main = document.querySelectorAll('div>span')
+    // console.log( document.querySelector('#main').innerHTML
     $('ul').html($('div>span'))
     // $('ul').html('a')
     console.log($('ul').html())
     // 测试设置和获取属性
     $('ul').attr('id', '1')
+    $('ul').attr('id', '21')
     console.log($('ul').attr())
     console.log($('ul').attr('id'))
-    // console.log( document.querySelector('#main').innerHTML)
+    // 测试删除属性
+    console.log($('ul').attr('id'))
+    console.log($('ul').rmAttr('id').attr())
+    console.log($('ul').rmAttr('id22').attr())
+    console.log($('ul').attr('id'))
 </script>
 </body>
 

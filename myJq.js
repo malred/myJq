@@ -53,6 +53,7 @@
         // 添加子元素
         append: function (element) {
             this[0].appendChild(element)
+            return this
         },
         // 获取选择器选中的第一个元素
         first: function () {
@@ -65,7 +66,7 @@
         // 添加或获取dom元素的属性
         attr: function (attr, value) {
             // 没有参数,获取所有属性名
-            if(arguments.length==0){
+            if (arguments.length == 0) {
                 return this[0].getAttributeNames()
             }
             // 一个参数,说明要获取属性
@@ -74,6 +75,19 @@
             }
             // 如果是两个参数,说明要设置属性
             this[0].setAttribute(attr, value)
+            return this
+        },
+        // 根据属性名称删除dom元素的属性
+        rmAttr: function (attr) {
+            // 没有传属性名,则不做操作
+            if (arguments.length == 0) {
+                return this
+            }
+            // 存在该属性才删除
+            if (this[0].getAttribute(attr)) {
+                this[0].removeAttribute(attr)
+            }
+            return this
         }
     }
     // ! init和css等其他方法平级,但是通过这句可以把其他方法赋值给init
