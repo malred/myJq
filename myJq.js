@@ -1,8 +1,8 @@
 // 立即执行函数
-; (function () {
+;(function () {
     // 返回一个对象,支持链式编程
     var jquery = function (selector) {
-        // 传入的选择器可能选中多个 
+        // 传入的选择器可能选中多个
         return new jquery.prototype.init(selector) // init{constructor(selector){},...}
     }
     // 每个对象都有原型(函数也是对象)
@@ -29,9 +29,9 @@
                 return this[0].style[attr]
             }
         },
-        // (单)元素的innerHTML 
+        // (单)元素的innerHTML
         html: function (element) {
-            if(arguments.length == 0){
+            if (arguments.length == 0) {
                 return this[0].innerHTML
             }
             if (!element) return
@@ -61,10 +61,24 @@
         // 获取选择器选中的最后一个元素
         last: function () {
             return this[this.length - 1]
+        },
+        // 添加或获取dom元素的属性
+        attr: function (attr, value) {
+            // 没有参数,获取所有属性名
+            if(arguments.length==0){
+                return this[0].getAttributeNames()
+            }
+            // 一个参数,说明要获取属性
+            if (arguments.length == 1) {
+                return this[0].getAttribute(attr)
+            }
+            // 如果是两个参数,说明要设置属性
+            this[0].setAttribute(attr, value)
         }
     }
     // ! init和css等其他方法平级,但是通过这句可以把其他方法赋值给init
     jquery.prototype.init.prototype = jquery.prototype
+
     // 获取dom
     function markArray(that, dom) {
         for (var i = 0; i < dom.length; i++) {
@@ -74,6 +88,7 @@
         // 添加length属性
         that.length = dom.length
     }
+
     // 挂载jquery函数到全局作用域,外部就可以访问了
     window.jquery = window.$ = jquery
-})() 
+})()
